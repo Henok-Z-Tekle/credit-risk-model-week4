@@ -136,5 +136,41 @@ The objective of Task 2 is to explore and understand the structure, quality, and
 
 ### Notebook Location
 All exploratory analysis for Task 2 is implemented in:
+- `notebooks/eda.ipynb`
+
+---
+
+**Setup & Quick Commands**
+
+- Create and activate virtual environment (Windows PowerShell):
+
+	```powershell
+	python -m venv venv
+	.\venv\Scripts\Activate.ps1
+	pip install --upgrade pip
+	pip install -r requirements.txt
+	```
+
+- Run unit tests locally:
+
+	```powershell
+	python -m pytest -q
+	```
+
+- Run EDA notebook (from repository root):
+
+	```powershell
+	jupyter notebook notebooks/eda.ipynb
+	```
+
+**CI & Containerization**
+
+- A minimal GitHub Actions workflow is provided at `.github/workflows/ci.yml` which installs dependencies and runs `pytest` on pushes and pull requests.
+- A `Dockerfile` and `docker-compose.yml` are included for reproducible test runs and simple containerized workflows.
+
+**Notes on feedback and next steps**
+
+- The EDA notebook now uses `src.utils.load_csv` helper for consistent loading and the `src` package has been made importable so tests can run in CI.
+- To improve deployment-readiness further, consider adding a small `api/` FastAPI app, model training scripts in `src/`, and a requirements lock (`requirements-lock.txt`) for deterministic builds.
 
 
