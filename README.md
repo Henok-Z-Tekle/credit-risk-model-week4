@@ -1,7 +1,3 @@
-# credit-risk-model-week4
-
-# credit-risk-model-week4
-
 # Credit Risk Modeling – Week 4 (10 Academy)
 
 This project focuses on building a credit risk modeling pipeline using transactional data.  
