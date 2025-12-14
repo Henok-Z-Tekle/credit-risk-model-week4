@@ -1,4 +1,6 @@
-from __future__ import annotations
+from pathlib import Path
+
+content = '''from __future__ import annotations
 
 from pathlib import Path
 import pandas as pd
@@ -25,3 +27,8 @@ def load_csv(path: str | Path) -> pd.DataFrame:
     if df.empty:
         raise ValueError(f"CSV is empty: {p.resolve()}")
     return df
+'''
+
+p = Path('src') / 'utils' / 'io.py'
+p.write_text(content, encoding='utf-8')
+print('wrote', p)
