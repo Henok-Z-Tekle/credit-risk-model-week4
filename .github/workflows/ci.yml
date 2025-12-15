@@ -2,6 +2,8 @@ name: CI
 
 on:
   push:
+    env:
+      MLFLOW_TRACKING_URI: http://127.0.0.1:5000
     branches: [ main, task-1, task-2 ]
   pull_request:
     branches: [ main ]
@@ -12,10 +14,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
+          pip install mlflow
         uses: actions/setup-python@v4
+        run: |
+          # start mlflow in background and give it a moment to boot
+          nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root mlruns --host 127.0.0.1 --port 5000 > mlflow.log 2>&1 &
+          sleep 5
+      
         with:
           python-version: '3.11'
-      - name: Install dependencies
+          python -m pytest -q
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
