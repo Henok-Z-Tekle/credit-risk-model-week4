@@ -12,5 +12,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Default command runs tests; the API Dockerfile runs the server.
-CMD ["python", "-m", "pytest", "-q"]
+# Default command runs the API server with uvicorn
+CMD ["uvicorn", "src.api.app:app", "--host", "0.0.0.0", "--port", "8000"]

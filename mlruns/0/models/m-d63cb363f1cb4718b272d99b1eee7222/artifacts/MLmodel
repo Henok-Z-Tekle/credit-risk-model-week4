@@ -1,0 +1,22 @@
+artifact_path: file:C:/Users/heniz/OneDrive/Desktop/KAIM Files/credit-risk-model-week4/mlruns/0/models/m-d63cb363f1cb4718b272d99b1eee7222/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.14.0
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+mlflow_version: 3.7.0
+model_id: m-d63cb363f1cb4718b272d99b1eee7222
+model_size_bytes: 13217
+model_uuid: m-d63cb363f1cb4718b272d99b1eee7222
+prompts: null
+run_id: af789381769b4d30867e79377ac15e4b
+utc_time_created: '2025-12-15 19:32:11.082601'
